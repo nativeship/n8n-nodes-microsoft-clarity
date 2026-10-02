@@ -1,0 +1,187 @@
+{
+  "schemaVersion": 1,
+  "fixtures": [
+    {
+      "operationId": "getProjectLiveInsights",
+      "method": "GET",
+      "path": "/export-data/api/v1/project-live-insights",
+      "serverId": "documentServer1HttpsWwwClarityMs",
+      "authentication": [
+        {
+          "schemes": [
+            "bearerAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [
+        {
+          "name": "numOfDays",
+          "inputName": "numOfDays",
+          "sample": 1,
+          "enum": [
+            1,
+            2,
+            3
+          ],
+          "location": "query",
+          "required": true,
+          "arrayFormat": "indices"
+        },
+        {
+          "name": "dimension1",
+          "inputName": "dimension1",
+          "sample": "value/id",
+          "location": "query",
+          "required": false,
+          "arrayFormat": "indices"
+        },
+        {
+          "name": "dimension2",
+          "inputName": "dimension2",
+          "sample": "value/id",
+          "location": "query",
+          "required": false,
+          "arrayFormat": "indices"
+        },
+        {
+          "name": "dimension3",
+          "inputName": "dimension3",
+          "sample": "value/id",
+          "location": "query",
+          "required": false,
+          "arrayFormat": "indices"
+        }
+      ],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": []
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "information",
+            "type": "array"
+          },
+          {
+            "name": "metricName",
+            "type": "string"
+          }
+        ],
+        "simplifiedFields": [
+          "information",
+          "metricName"
+        ]
+      },
+      "errors": [
+        {
+          "status": "400",
+          "title": "BadRequest — invalid request parameters."
+        },
+        {
+          "status": "401",
+          "title": "Unauthorized — missing, invalid, or expired token."
+        },
+        {
+          "status": "403",
+          "title": "Forbidden — token not authorized for operation."
+        },
+        {
+          "status": "429",
+          "title": "TooManyRequests — exceeded daily limit (maximum 10 API requests per project per day)."
+        }
+      ],
+      "requestPlan": {
+        "operationId": "getProjectLiveInsights",
+        "method": "GET",
+        "path": "/export-data/api/v1/project-live-insights",
+        "serverId": "documentServer1HttpsWwwClarityMs",
+        "request": {
+          "method": "GET",
+          "url": "=/export-data/api/v1/project-live-insights",
+          "query": [
+            {
+              "name": "numOfDays",
+              "source": "parameter"
+            },
+            {
+              "name": "dimension1",
+              "source": "additionalFields"
+            },
+            {
+              "name": "dimension2",
+              "source": "additionalFields"
+            },
+            {
+              "name": "dimension3",
+              "source": "additionalFields"
+            }
+          ],
+          "body": [],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "bearerAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "information",
+              "type": "array"
+            },
+            {
+              "name": "metricName",
+              "type": "string"
+            }
+          ],
+          "simplifiedFields": [
+            "information",
+            "metricName"
+          ]
+        },
+        "errors": [
+          {
+            "status": "400",
+            "title": "BadRequest — invalid request parameters."
+          },
+          {
+            "status": "401",
+            "title": "Unauthorized — missing, invalid, or expired token."
+          },
+          {
+            "status": "403",
+            "title": "Forbidden — token not authorized for operation."
+          },
+          {
+            "status": "429",
+            "title": "TooManyRequests — exceeded daily limit (maximum 10 API requests per project per day)."
+          }
+        ],
+        "unsupportedSemantics": []
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    }
+  ],
+  "triggerFixtures": []
+}

@@ -1,0 +1,58 @@
+{
+    "author": {
+        "email": "hello@nativeship.io",
+        "name": "Administrator"
+    },
+    "description": "Microsoft Clarity analyzes how people use websites and apps with session recordings, heatmaps, and behavior insights.",
+    "devDependencies": {
+        "@n8n/node-cli": "0.41.2",
+        "@types/node": "22.15.29",
+        "eslint": "9.29.0",
+        "prettier": "3.6.2",
+        "typescript": "5.9.3"
+    },
+    "engines": {
+        "node": "\u003e=22.22.0"
+    },
+    "files": [
+        "dist"
+    ],
+    "homepage": "https://learn.microsoft.com/en-us/clarity/",
+    "keywords": [
+        "n8n-community-node-package",
+        "nativeship",
+        "nativeship-nodes",
+        "n8n",
+        "microsoft-clarity",
+        "n8n-node",
+        "website-analytics",
+        "session-replay",
+        "heatmaps",
+        "user-behavior"
+    ],
+    "license": "MIT",
+    "n8n": {
+        "credentials": [
+            "dist/credentials/MicrosoftClarityApi.credentials.js"
+        ],
+        "n8nNodesApiVersion": 1,
+        "nodes": [
+            "dist/nodes/MicrosoftClarity/MicrosoftClarity.node.js"
+        ],
+        "strict": true
+    },
+    "name": "@nativeship/n8n-nodes-microsoft-clarity",
+    "peerDependencies": {
+        "n8n-workflow": "*"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "scripts": {
+        "build": "n8n-node build",
+        "dev": "n8n-node dev",
+        "lint": "n8n-node lint",
+        "lint:fix": "n8n-node lint --fix"
+    },
+    "version": "1.0.0"
+}

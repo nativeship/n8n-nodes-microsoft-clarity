@@ -1,0 +1,4 @@
+{
+  "node": "@nativeship/n8n-nodes-microsoft-clarity.microsoftClarity",
+  "nodeVersion": "1"
+}
